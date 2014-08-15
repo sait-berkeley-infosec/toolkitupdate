@@ -1,6 +1,7 @@
 #!/bin/bash
 # Script to automatically update toolkit files from online sources
 # Written by Samuel Zhu <sjzhu@rescomp.berkeley.edu>
+# Edited by Mina Li <limina@rescomp.berkeley.edu>
 
 rm /export/teams/rcc/TOOLKIT/Malware\ Removal/mbam-rules.exe
 /usr/bin/wget -P /export/teams/rcc/TOOLKIT/Malware\ Removal/ http://data-cdn.mbamupdates.com/tools/mbam-rules.exe 2>/dev/null
