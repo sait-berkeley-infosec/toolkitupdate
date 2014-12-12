@@ -44,3 +44,5 @@ rm /export/teams/rcc/TOOLKIT/Malware\ Removal/Advanced/autorunsc.exe
 rm /export/teams/rcc/TOOLKIT/Malware\ Removal/Advanced/Eula.txt
 mv /export/teams/rcc/TOOLKIT/Malware\ Removal/Advanced/autoruns.exe /export/teams/rcc/TOOLKIT/Networking/Autoruns.exe
 
+rm /export/teams/rcc/TOOLKIT/Malware\ Removal/adwcleaner*.exe
+/usr/bin/wget -P /export/teams/rcc/TOOLKIT/Malware\ Removal/ https://toolslib.net/downloads/finish/1/get/sRmO/ 2>/dev/null

@@ -21,7 +21,9 @@ TOOLKIT_DEV=`mount | grep -i toolkit | cut -d" " -f1`
 # also include a separate Ubuntu partition. I have no comment on the
 # matter here except that it makes for a bit of a kludge
 UBUNTU_DEV=`mount | grep -i ubuntu | cut -d" " -f1`
-LOG_FOLDER=/home/limina/Documents/ISC/test_logs/
+
+# ADD ME
+LOG_FOLDER=/export/teams/rcc/toolkit_logs
 
 function usage()
 {
@@ -94,6 +96,7 @@ function prep()
     find ${TOOLKIT} | xargs touch --date="8 days ago"
 }
 
+# ADD ME (the entire function)
 function log()
 {
     echo $(date "+%Y-%m-%d %H:%M") $(whoami) >> ${LOG_FOLDER}$(date "+%Y-%m")
@@ -124,6 +127,7 @@ if [[ ! -w $TOOLKIT_FOLDER ]]; then
 fi
 sync
 unmount
+# ADD ME
 log
 touch ~/.toolkitsync
 echo "Should be good to go. Exiting."

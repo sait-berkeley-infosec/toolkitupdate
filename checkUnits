@@ -1,0 +1,32 @@
+echo "Enter 0 for previous month, and any other number for just this month."
+read prev
+if [ $prev -ne 0 ]; then
+	echo "Enter number for number of weeks to look at."
+	read lim
+	days=$((lim * 7))
+fi
+
+for FILE in RCCs/*
+do
+	echo "***************"
+	echo "***${FILE:5}***" | tr [a-z] [A-Z]
+	echo "***************"
+	cat $FILE | while read LINE
+	do
+		echo ""
+		echo "${LINE}" | tr [a-z] [A-Z]
+
+		if [ $prev -eq 0 ]; then
+			grep $LINE /export/teams/rcc/toolkit_logs/$(date "+%Y-%m" --date="-1 month") 
+			grep $LINE /export/teams/rcc/toolkit_logs/$(date "+%Y-%m") 
+		else
+			i=0
+			until [ "$i" == "$days" ]; do
+        			grep $LINE /export/teams/rcc/toolkit_logs/$(date "+%Y-%m") | grep $(date "+%Y-%m-%d" --date="-${i} day")
+        			i=$((i + 1))
+			done
+			#grep $LINE /export/teams/rcc/toolkit_logs/$(date "+%Y-%m") 
+		fi
+	done
+	echo ""
+done
